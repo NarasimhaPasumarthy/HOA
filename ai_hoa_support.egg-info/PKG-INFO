@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: ai-hoa-support
+Version: 0.0.1
+Summary: HOA policy search MCP server with hybrid (vector + BM25) retrieval
+Requires-Python: >=3.11
+Requires-Dist: mcp<3,>=2.2
+Requires-Dist: chromadb>=0.5
+Requires-Dist: redis>=5.0
+Requires-Dist: openai>=1.40
+Requires-Dist: httpx>=0.27
+Requires-Dist: pypdf>=5.0
+Requires-Dist: pdf2image>=1.17
+Requires-Dist: pytesseract>=0.3.10
+Requires-Dist: prometheus-client>=0.20
+Provides-Extra: dev
+Requires-Dist: pytest>=8; extra == "dev"
+Requires-Dist: reportlab>=4; extra == "dev"
+Requires-Dist: pillow>=10; extra == "dev"

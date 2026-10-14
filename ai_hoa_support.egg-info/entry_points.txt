@@ -1,0 +1,2 @@
+[console_scripts]
+ai-hoa-support = hoa_support.server:main

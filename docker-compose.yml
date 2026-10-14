@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    ports: ["8083:8083"]
+    env_file: .env
+    environment:
+      CHROMA_HOST: chroma
+      REDIS_HOST: redis
+      BM25_INDEX_PATH: /app/data/bm25-index.sqlite3
+      HOA_DOCUMENT_FOLDER_PATH: /docs
+    volumes:
+      - app-data:/app/data
+      - "E:/AI Projects/HOA-Testing:/docs:ro"
+    depends_on: [chroma, redis]
+  chroma:
+    image: chromadb/chroma:latest
+    ports: ["8000:8000"]
+    volumes: ["chroma-data:/data"]
+  redis:
+    image: redis:7
+    ports: ["6379:6379"]
+volumes:
+  chroma-data:
+  app-data:

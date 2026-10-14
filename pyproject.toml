@@ -1,0 +1,31 @@
+[project]
+name = "ai-hoa-support"
+version = "0.0.1"
+description = "HOA policy search MCP server with hybrid (vector + BM25) retrieval"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=2.2,<3",
+    "chromadb>=0.5",
+    "redis>=5.0",
+    "openai>=1.40",
+    "httpx>=0.27",
+    "pypdf>=5.0",
+    "pdf2image>=1.17",
+    "pytesseract>=0.3.10",
+    "prometheus-client>=0.20",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "reportlab>=4", "pillow>=10"]
+
+[project.scripts]
+ai-hoa-support = "hoa_support.server:main"
+
+[tool.setuptools]
+packages = ["hoa_support"]
+
+[tool.setuptools.package-data]
+hoa_support = ["static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
